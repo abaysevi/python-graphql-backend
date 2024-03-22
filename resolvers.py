@@ -26,7 +26,7 @@ def resolve_all_products(obj, info):
 def resolve_cart(obj,info):
     token = info.context["request"].headers.get('authorization')
     if checkcurrentUser(token):
-        cart=list(db.get_products_collection().find())
+        cart=list(db.get_cart_collection().find())
         print(cart)
         for cartitem in cart:
             cartitem['id']=str(cartitem.pop("_id"))
@@ -38,7 +38,7 @@ def resolve_cart(obj,info):
 def resolve_sales(obj,info):
     token = info.context["request"].headers.get('authorization')
     if checkcurrentUser(token):
-        sales=list(db.get_products_collection().find())
+        sales=list(db.get_sales_collection().find())
         print(sales)
         for sale in sales:
             sale['id']=str(sale.pop("_id"))
@@ -59,6 +59,7 @@ def resolve_users(*_):
 def resolve_current_user(_, info):
     token = info.context["request"].headers.get('authorization')
     user=checkcurrentUser(token)
+    print(user)
     return user
 
 @mutation.field("createUser")

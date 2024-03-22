@@ -94,7 +94,7 @@ def resolve_add_product(_, info, input):
             "productPrice": input["productPrice"],
             "uniqueCode": input.get("uniqueCode"),
             "tax": input.get("tax"),
-            "createdAt": datetime.now().isoformat()  # You need to update this with the actual current date
+            "createdAt": datetime.now().isoformat()  
         }
         result = db.get_products_collection().insert_one(product_data)
         product = db.get_products_collection().find_one({"_id": result.inserted_id})

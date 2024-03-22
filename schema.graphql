@@ -1,0 +1,185 @@
+# type User {
+#   id: ID!
+#   name: String!
+#   email: String!
+#   role: String!
+# }
+
+# type Product {
+#   id: ID!
+#   productName: String
+#   productPrice: Float
+#   uniqueCode: String
+#   tax: Float
+#   createdAt: String
+# }
+
+# type Cart {
+#   id: ID!
+#   productName: String
+#   productPrice: Float
+#   uniqueCode: String
+#   tax: Float
+#   quantity: Int
+#   createdAt: String
+# }
+
+# type Sale {
+#   id: ID!
+#   cartItems: [Cart]  # Custom type to represent cart items
+#   totalAmount: Float
+#   paymentOption: String
+#   createdAt: String
+# }
+
+# type AuthResponse {
+#   token: String
+#   error: String
+# }
+
+# input CreateUserInput {
+#   name: String!
+#   email: String!
+#   password: String!
+#   role: String!
+# }
+
+# input LoginInput {
+#   email: String!
+#   password: String!
+# }
+
+# input addProductInput {
+#   productName: String
+#   productPrice: Float
+#   uniqueCode: String
+#   tax: Float
+# }
+
+# input addToCartInput {
+#   productName: String
+#   productPrice: Float
+#   uniqueCode: String
+#   tax: Float
+#   quantity: Int
+# }
+
+# input addToSaleInput {
+#   cartItems: [Cart!]!
+#   totalAmount: Float
+#   paymentOption: String
+# }
+
+# type Query {
+#   allProducts: [Product!]!
+#   cart: [Cart!]!
+#   sales: [Sale!]!
+#   users: [User!]!
+#   currentUser: User
+# }
+
+# type Mutation {
+#   addProduct(input: addProductInput): Product!
+#   addToCart(input: addToCartInput): Cart!
+#   addToSale(input: addToSaleInput): Sale!
+#   createUser(input: CreateUserInput!): User!
+#   login(input: LoginInput!): AuthResponse!
+# }
+
+
+
+type User {
+  id: ID!
+  name: String!
+  email: String!
+  role: String!
+}
+
+type Product {
+  id: ID!
+  productName: String
+  productPrice: Float
+  uniqueCode: String
+  tax: Float
+  createdAt: String
+}
+
+type Cart {
+  id: ID!
+  productName: String
+  productPrice: Float
+  uniqueCode: String
+  tax: Float
+  quantity: Int
+  createdAt: String
+}
+
+type Sale {
+  id: ID!
+  cartItems: [Cart]  # Custom type to represent cart items
+  totalAmount: Float
+  paymentOption: String
+  createdAt: String
+}
+
+type AuthResponse {
+  token: String
+  error: String
+}
+
+input CreateUserInput {
+  name: String!
+  email: String!
+  password: String!
+  role: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+input addProductInput {
+  productName: String
+  productPrice: Float
+  uniqueCode: String
+  tax: Float
+}
+
+input addToCartInput {
+  productName: String
+  productPrice: Float
+  uniqueCode: String
+  tax: Float
+  quantity: Int
+}
+
+input CartItemInput {
+  productName: String
+  productPrice: Float
+  uniqueCode: String
+  tax: Float
+  quantity: Int
+}
+
+input addToSaleInput {
+  cartItems: [CartItemInput!]!
+  totalAmount: Float
+  paymentOption: String
+}
+
+type Query {
+  allProducts: [Product!]!
+  cart: [Cart!]!
+  sales: [Sale!]!
+  users: [User!]!
+  currentUser: User
+}
+
+type Mutation {
+  addProduct(input: addProductInput): Product!
+  addToCart(input: addToCartInput): Cart!
+  addToSale(input: addToSaleInput): Sale!
+  createUser(input: CreateUserInput!): User!
+  login(input: LoginInput!): AuthResponse!
+}

@@ -1,0 +1,53 @@
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1ZjQ3ZTRkYzViOTllY2Y5ODYwMTU0MyJ9.s_xLqOS0ko1mr10g7GK2w6mBMttT8kXUzL_Js0nKfzU
+
+
+
+# mutation {
+#   createUser(input: {email: "abaysevi@gmail.com", password: "password123"}) {
+#     id
+#     email
+#     password
+#   }
+# }
+
+# query{
+#   users {
+#     id
+#   }
+# }
+
+# mutation {
+#   createUser(input: {
+#     name: "John Doe",
+#     email: "john@example.com",
+#     password: "password123",
+#     role: "client"
+#   }) {
+#     id
+#     name
+#     email
+#     role
+#   }
+# }
+
+# mutation {
+#   login(input: {
+#     email: "john@example.com",
+#     password: "password123"
+#   }) {
+#     token
+#     error
+#   }
+# }
+
+mutation CreatePost($input: CreatePostInput!) {
+  createPost(input: $input) {
+    id
+    post_media_url
+    created_date
+    updated_date
+    post_title
+    post_descri
+  }
+}
+
